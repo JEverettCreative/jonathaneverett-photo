@@ -1,12 +1,14 @@
 ---
 layout: layouts/base.njk
 title: Blog
+metaTitle: "Blog — Photography Tips, Behind the Scenes, and More"
+metaDescription: "Thoughts on photography, behind-the-scenes from shoots, competition tips, and stories from the field. By Jonathan Everett, Nashville photographer."
 ---
 
 <section class="page-hero">
   <div class="container">
-    <h1>Blog</h1>
-    <p class="tagline">Thoughts, behind-the-scenes, and stories from the field.</p>
+    <h1 class="fade-in">Blog</h1>
+    <p class="tagline fade-in">Thoughts, behind-the-scenes, and stories from the field.</p>
   </div>
 </section>
 
@@ -14,10 +16,17 @@ title: Blog
   <div class="container">
     <div class="post-list">
       {% for post in collections.posts %}
-      <article class="post-item">
-        <p class="post-date">{{ post.date.toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"}) }}</p>
+      <article class="post-item fade-in">
+        <p class="post-date">{{ post.date | date("%B %d, %Y") }}</p>
         <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
         <p class="post-excerpt">{{ post.data.excerpt }}</p>
+        {% if post.data.tags %}
+        <div class="post-tags">
+          {% for tag in post.data.tags %}
+          <span class="post-tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
       </article>
       {% else %}
       <div class="text-center" style="padding: var(--space-lg) 0;">

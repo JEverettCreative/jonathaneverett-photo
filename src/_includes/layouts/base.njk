@@ -3,17 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }} | {{ site.name }} - {{ site.tagline }}</title>
+  <title>{{ metaTitle or title }} | {{ site.name }}</title>
+  <meta name="description" content="{{ metaDescription or site.description }}">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ metaTitle or title }} | {{ site.name }}">
+  <meta property="og:description" content="{{ metaDescription or site.description }}">
+  <meta property="og:image" content="{{ site.url }}{{ ogImage or site.ogImage }}">
+  <meta property="og:type" content="{{ ogType or 'website' }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ metaTitle or title }} | {{ site.name }}">
+  <meta name="twitter:description" content="{{ metaDescription or site.description }}">
+  <meta name="twitter:image" content="{{ site.url }}{{ ogImage or site.ogImage }}">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "Photographer"],
+    "name": "{{ site.name }}",
+    "description": "{{ site.description }}",
+    "url": "{{ site.url }}",
+    "email": "{{ site.email }}",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nashville",
+      "addressRegion": "TN",
+      "addressCountry": "US"
+    },
+    "image": "{{ site.url }}{{ site.ogImage }}",
+    "priceRange": "$$",
+    "sameAs": [
+      "{{ site.instagram }}",
+      "{{ site.youtube }}",
+      "{{ site.imdb }}"
+    ]
+  }
+  </script>
+
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 </head>
 <body>
+  <!-- Grain overlay -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
   <header class="site-header">
     <div class="container">
       <a href="/" class="logo">
         <span class="logo-name">Jonathan Everett</span>
         <span class="logo-sub">Creative — Nashville</span>
       </a>
-      <button class="nav-toggle" aria-label="Toggle navigation">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
       <nav class="main-nav" id="mainNav">
@@ -35,7 +80,7 @@
     </div>
   </header>
 
-  <main>
+  <main class="page-transition">
     {{ content | safe }}
   </main>
 
@@ -55,12 +100,28 @@
             <li><a href="/photography/portraits/">Portraits &amp; Creative</a></li>
           </ul>
         </div>
+        <div class="footer-links">
+          <h4>More</h4>
+          <ul>
+            <li><a href="/film/">Film</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/contact/">Contact</a></li>
+          </ul>
+        </div>
         <div class="footer-social">
           <h4>Connect</h4>
           <div class="social-links">
             <a href="{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a>
             <a href="{{ site.imdb }}" target="_blank" rel="noopener">IMDB</a>
             <a href="{{ site.youtube }}" target="_blank" rel="noopener">YouTube</a>
+          </div>
+          <div class="footer-newsletter">
+            <h4>Stay in the Loop</h4>
+            <form class="newsletter-form" action="/api/newsletter" method="POST">
+              <input type="email" name="email" placeholder="Your email" required aria-label="Email for newsletter">
+              <button type="submit" class="btn btn-sm">Subscribe</button>
+            </form>
           </div>
         </div>
       </div>
@@ -76,6 +137,26 @@
     <div class="lightbox-content">
       <img src="" alt="" id="lightboxImg">
     </div>
+  </div>
+
+  <!-- Exit Intent Popup -->
+  <div class="exit-popup" id="exitPopup">
+    <div class="exit-popup-overlay"></div>
+    <div class="exit-popup-content">
+      <button class="exit-popup-close" aria-label="Close">&times;</button>
+      <h3>Wait — Before You Go</h3>
+      <p>Download the free <strong>Competition Photo Prep Guide</strong> — everything you need to know to look your best on camera.</p>
+      <form class="exit-popup-form" action="/api/lead-magnet" method="POST">
+        <input type="email" name="email" placeholder="Your email address" required>
+        <button type="submit" class="btn btn-fill">Send Me the Guide</button>
+      </form>
+      <p class="exit-popup-note">No spam. Unsubscribe anytime.</p>
+    </div>
+  </div>
+
+  <!-- Mobile Sticky CTA -->
+  <div class="mobile-sticky-cta" id="mobileCta">
+    <a href="/contact/" class="btn btn-fill btn-sticky">Book Now</a>
   </div>
 
   <script src="/js/main.js"></script>

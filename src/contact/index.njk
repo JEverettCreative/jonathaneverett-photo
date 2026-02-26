@@ -1,57 +1,86 @@
 ---
 layout: layouts/base.njk
 title: Contact
+metaTitle: "Contact — Book a Photography Session in Nashville"
+metaDescription: "Ready to book a photography session? Reach out for physique photography, headshots, portraits, or creative work in Nashville."
 ---
 
 <section class="page-hero">
   <div class="container">
-    <h1>Contact</h1>
-    <p class="tagline">Let's make something together.</p>
+    <h1 class="fade-in">Contact</h1>
+    <p class="tagline fade-in">Let's make something together.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
     <div class="contact-grid">
-      <div class="contact-form">
-        <form action="#" method="POST">
+      <div class="contact-form fade-in">
+        <form action="/api/contact" method="POST">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" required placeholder="Your name">
 
           <label for="email">Email</label>
           <input type="email" id="email" name="email" required placeholder="your@email.com">
 
-          <label for="service">Service</label>
+          <label for="phone">Phone <span style="color: var(--text-muted); text-transform: none; letter-spacing: 0;">(optional)</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="(615) 555-0000">
+
+          <label for="service">Service Type</label>
           <select id="service" name="service">
             <option value="">Select a service...</option>
             <option value="physique">Physique Photography</option>
             <option value="headshots">Headshots</option>
-            <option value="portraits">Portraits & Creative</option>
+            <option value="portraits">Portraits &amp; Creative</option>
+            <option value="cosplay">Cosplay Photography</option>
             <option value="film">Film / Video</option>
             <option value="other">Other</option>
           </select>
 
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Tell me about your project..."></textarea>
+          <label for="timeline">Timeline <span style="color: var(--text-muted); text-transform: none; letter-spacing: 0;">(optional)</span></label>
+          <select id="timeline" name="timeline">
+            <option value="">When are you looking to shoot?</option>
+            <option value="asap">As soon as possible</option>
+            <option value="2weeks">Within 2 weeks</option>
+            <option value="month">Within a month</option>
+            <option value="flexible">Flexible / no rush</option>
+          </select>
+
+          <label for="message">Tell Me About Your Project</label>
+          <textarea id="message" name="message" placeholder="What are you looking for? Any details about your vision, timeline, or questions you have..."></textarea>
 
           <button type="submit" class="btn btn-fill">Send Message</button>
         </form>
       </div>
-      <div class="contact-info">
+      <div class="contact-info fade-in-right">
         <h3>Direct Contact</h3>
         <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
 
         <h3 style="margin-top: var(--space-md);">Based In</h3>
         <p>Nashville, Tennessee</p>
-        <p style="font-size: 0.9rem;">Available for travel worldwide.</p>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">Available for travel worldwide.</p>
 
         <h3 style="margin-top: var(--space-md);">Follow Along</h3>
         <div class="social-links" style="flex-direction: column;">
-          <a href="{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a>
+          <a href="{{ site.instagram }}" target="_blank" rel="noopener">Instagram {{ site.instagramHandle }}</a>
           <a href="{{ site.youtube }}" target="_blank" rel="noopener">YouTube</a>
           <a href="{{ site.imdb }}" target="_blank" rel="noopener">IMDB</a>
+        </div>
+
+        <div class="map-placeholder fade-in">
+          <span>📍 Nashville, TN — Map Coming Soon</span>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+// Pre-select service from URL param
+const params = new URLSearchParams(window.location.search);
+const service = params.get('service');
+if (service) {
+  const select = document.getElementById('service');
+  if (select) select.value = service;
+}
+</script>

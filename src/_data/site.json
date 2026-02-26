@@ -1,8 +1,13 @@
 {
   "name": "Jonathan Everett Creative",
   "tagline": "Nashville",
+  "url": "https://jonathaneverettcreative.com",
   "email": "jonathan@jonathaneverettcreative.com",
-  "instagram": "https://instagram.com/jonathaneverettcreative",
+  "phone": "",
+  "instagram": "https://instagram.com/jonathaneverett_creative",
+  "instagramHandle": "@jonathaneverett_creative",
   "imdb": "https://imdb.com/",
-  "youtube": "https://youtube.com/"
+  "youtube": "https://youtube.com/",
+  "description": "Nashville-based photographer specializing in physique photography, headshots, portraits, and creative work. Also a filmmaker and actor.",
+  "ogImage": "/images/og-default.jpg"
 }
