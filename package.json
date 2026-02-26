@@ -1,0 +1,12 @@
+{
+  "name": "jonathaneverett-photo",
+  "version": "1.0.0",
+  "description": "Jonathan Everett Creative - Nashville Photography Portfolio",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

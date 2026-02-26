@@ -1,0 +1,29 @@
+---
+layout: layouts/base.njk
+title: Blog
+---
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Blog</h1>
+    <p class="tagline">Thoughts, behind-the-scenes, and stories from the field.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="post-list">
+      {% for post in collections.posts %}
+      <article class="post-item">
+        <p class="post-date">{{ post.date.toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"}) }}</p>
+        <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+        <p class="post-excerpt">{{ post.data.excerpt }}</p>
+      </article>
+      {% else %}
+      <div class="text-center" style="padding: var(--space-lg) 0;">
+        <p style="color: var(--text-muted);">New posts coming soon. Stay tuned.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

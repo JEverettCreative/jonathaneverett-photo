@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} | {{ site.name }} - {{ site.tagline }}</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">
+        <span class="logo-name">Jonathan Everett</span>
+        <span class="logo-sub">Creative — Nashville</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li class="has-dropdown">
+            <a href="#">Photography</a>
+            <ul class="dropdown">
+              <li><a href="/photography/physique/">Physique</a></li>
+              <li><a href="/photography/headshots/">Headshots</a></li>
+              <li><a href="/photography/portraits/">Portraits &amp; Creative</a></li>
+            </ul>
+          </li>
+          <li><a href="/film/">Film</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/" class="nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="logo-name">Jonathan Everett Creative</p>
+          <p>Nashville, Tennessee</p>
+          <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+        </div>
+        <div class="footer-links">
+          <h4>Photography</h4>
+          <ul>
+            <li><a href="/photography/physique/">Physique</a></li>
+            <li><a href="/photography/headshots/">Headshots</a></li>
+            <li><a href="/photography/portraits/">Portraits &amp; Creative</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h4>Connect</h4>
+          <div class="social-links">
+            <a href="{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a>
+            <a href="{{ site.imdb }}" target="_blank" rel="noopener">IMDB</a>
+            <a href="{{ site.youtube }}" target="_blank" rel="noopener">YouTube</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Jonathan Everett Creative. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <div class="lightbox-content">
+      <img src="" alt="" id="lightboxImg">
+    </div>
+  </div>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
