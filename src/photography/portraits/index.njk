@@ -1,62 +1,56 @@
 ---
 layout: layouts/base.njk
-title: Portraits & Creative
-metaTitle: "Portraits & Creative Photography — Nashville"
-metaDescription: "Editorial portraits, cosplay photography, and conceptual creative shoots in Nashville. From personal branding to fully realized artistic visions."
+title: Cosplay & Dark Concept
+metaTitle: "Cosplay & Dark Concept Photography — Nashville"
+metaDescription: "Cosplay photography and dark conceptual art shoots in Nashville. From character portrayals to fully realized fantasy and horror composites."
 ---
 
 <section class="page-hero">
   <div class="container">
-    <h1 class="fade-in">Portraits &amp; Creative</h1>
+    <h1 class="fade-in">Cosplay & Dark Concept</h1>
     <p class="tagline fade-in">Beyond the headshot. Into the art.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <p class="intro-text fade-in">From editorial portraits to cosplay photography to fully conceptual creative shoots — this is where we push boundaries. If you have a vision, I'll help you bring it to life. If you don't, we'll find one together.</p>
+    <p class="intro-text fade-in">From cosplay character photography to dark conceptual art — this is where we push boundaries. Dramatic lighting, compositing, and post-production that transforms a photo into something cinematic. If you have a vision, I'll help you bring it to life.</p>
   </div>
 </section>
 
 <section class="section section-dark">
   <div class="container">
     <div class="section-title fade-in">
-      <h2>What I Shoot</h2>
-      <div class="gold-divider"></div>
-    </div>
-    <div class="feature-grid stagger-children">
-      <div class="feature-card">
-        <h3>Portrait Sessions</h3>
-        <p>Personal branding, dating profiles, social media content, or just because. Relaxed sessions that capture who you are.</p>
-        <div style="margin-top: var(--space-sm);"><a href="/contact/?service=portraits" class="btn btn-sm">Book a Portrait Session</a></div>
-      </div>
-      <div class="feature-card">
-        <h3>Cosplay Photography</h3>
-        <p>You built the character — I'll bring the world. Location scouting, dramatic lighting, and compositing to make your cosplay come alive.</p>
-        <div style="margin-top: var(--space-sm);"><a href="/contact/?service=portraits" class="btn btn-sm">Book a Cosplay Shoot</a></div>
-      </div>
-      <div class="feature-card">
-        <h3>Creative &amp; Conceptual</h3>
-        <p>Art for art's sake. Experimental lighting, mixed media, unusual locations. Let's make something that doesn't fit in a category.</p>
-        <div style="margin-top: var(--space-sm);"><a href="/contact/?service=portraits" class="btn btn-sm">Start a Conversation</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-title fade-in">
       <h2>Gallery</h2>
       <div class="gold-divider"></div>
     </div>
     <div class="gallery-grid stagger-children">
-      <div class="gallery-item"><span class="gallery-placeholder">Portrait — Environmental</span><div class="overlay"><span>Environmental Portrait</span></div></div>
-      <div class="gallery-item"><span class="gallery-placeholder">Cosplay — Character</span><div class="overlay"><span>Cosplay Character</span></div></div>
-      <div class="gallery-item"><span class="gallery-placeholder">Creative — Conceptual</span><div class="overlay"><span>Conceptual</span></div></div>
-      <div class="gallery-item"><span class="gallery-placeholder">Portrait — Personal Brand</span><div class="overlay"><span>Personal Branding</span></div></div>
-      <div class="gallery-item"><span class="gallery-placeholder">Cosplay — Dramatic</span><div class="overlay"><span>Dramatic Cosplay</span></div></div>
-      <div class="gallery-item"><span class="gallery-placeholder">Creative — Fine Art</span><div class="overlay"><span>Fine Art</span></div></div>
+      {% set images = [
+        { src: "05212_uncropped", alt: "Cosplay Character" },
+        { src: "05755_social", alt: "Cosplay Portrait" },
+        { src: "fiery_claws", alt: "Fiery Claws" },
+        { src: "retouched_03319", alt: "Retouched Character" },
+        { src: "aphrodite_poster", alt: "Aphrodite Offering" },
+        { src: "becca_vintage_forest", alt: "Vintage Forest" },
+        { src: "candle_sepia_lucifer", alt: "Candle Sepia — Lucifer" },
+        { src: "corntee_tarot", alt: "Tarot" },
+        { src: "mournful_poster", alt: "Mournful" },
+        { src: "goddess_taste_blood", alt: "Goddess" },
+        { src: "shield_and_sword", alt: "Shield and Sword" },
+        { src: "pantsuit_demon", alt: "Pantsuit Demon" },
+        { src: "green_lantern", alt: "Green Lantern" },
+        { src: "sinister_wings", alt: "Sinister Wings" },
+        { src: "stella_promo", alt: "Stella Promo" }
+      ] %}
+      {% for img in images %}
+      <div class="gallery-item">
+        <picture>
+          <source srcset="/images/cosplay/{{ img.src }}-800w.webp 800w, /images/cosplay/{{ img.src }}-1200w.webp 1200w, /images/cosplay/{{ img.src }}-1920w.webp 1920w" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw" type="image/webp">
+          <img src="/images/cosplay/{{ img.src }}-1200w.webp" alt="{{ img.alt }}" loading="lazy">
+        </picture>
+        <div class="overlay"><span>{{ img.alt }}</span></div>
+      </div>
+      {% endfor %}
     </div>
   </div>
 </section>

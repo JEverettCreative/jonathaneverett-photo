@@ -7,7 +7,7 @@ metaDescription: "Professional physique photography for bodybuilding competitors
 
 <section class="page-hero">
   <div class="container">
-    <h1 class="fade-in">Physique Photography</h1>
+    <h1 class="fade-in">Physique & Fitness</h1>
     <p class="tagline fade-in">You Didn't Train This Hard for Average Photos.</p>
     <p class="hero-subtitle fade-in">Professional physique photography for competitors who want images as sharp as their conditioning. Shot by a photographer who's stood on stage himself.</p>
   </div>
@@ -81,24 +81,74 @@ metaDescription: "Professional physique photography for bodybuilding competitors
   </div>
 </section>
 
+{# ===== BLACK & WHITE GALLERY ===== #}
 <section class="section section-dark">
   <div class="container">
     <div class="section-title fade-in">
-      <h2>Gallery</h2>
+      <h2>Black & White</h2>
       <div class="gold-divider"></div>
     </div>
     <div class="gallery-grid stagger-children">
-      <div class="gallery-item"><span class="gallery-placeholder">Competition — Front Pose</span><div class="overlay"><span>Front Pose</span></div></div>
-      <div class="gallery-item"><span class="gallery-placeholder">Competition — Back Double Bicep</span><div class="overlay"><span>Back Double Bicep</span></div></div>
-      <div class="gallery-item"><span class="gallery-placeholder">Post-Show — Champion</span><div class="overlay"><span>Post-Show Champion</span></div></div>
-      <div class="gallery-item"><span class="gallery-placeholder">Transformation — Progress</span><div class="overlay"><span>Transformation</span></div></div>
-      <div class="gallery-item"><span class="gallery-placeholder">Studio — Dramatic Lighting</span><div class="overlay"><span>Studio Dramatic</span></div></div>
-      <div class="gallery-item"><span class="gallery-placeholder">Competition — Stage Shot</span><div class="overlay"><span>Stage Photography</span></div></div>
+      {% set bwImages = [
+        { src: "hero_shot_bw_04290", alt: "Hero Shot — Black & White" },
+        { src: "arnold_bw_04277", alt: "Arnold Pose — Black & White" },
+        { src: "bw_front_double_biceps_04236", alt: "Front Double Biceps" },
+        { src: "bw_back_double_biceps_04248", alt: "Back Double Biceps" },
+        { src: "bw_front_pose_04233", alt: "Front Pose" },
+        { src: "open_jacket_bw_05012", alt: "Open Jacket" },
+        { src: "looking_down_bw_04326", alt: "Looking Down" },
+        { src: "bw_04836", alt: "Studio Portrait" },
+        { src: "bw_04899", alt: "Studio Pose" },
+        { src: "pockets_bw_04811", alt: "Pockets" }
+      ] %}
+      {% for img in bwImages %}
+      <div class="gallery-item">
+        <picture>
+          <source srcset="/images/physique-bw/{{ img.src }}-800w.webp 800w, /images/physique-bw/{{ img.src }}-1200w.webp 1200w, /images/physique-bw/{{ img.src }}-1920w.webp 1920w" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw" type="image/webp">
+          <img src="/images/physique-bw/{{ img.src }}-1200w.webp" alt="{{ img.alt }}" loading="lazy">
+        </picture>
+        <div class="overlay"><span>{{ img.alt }}</span></div>
+      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
 
+{# ===== COLOR GALLERY ===== #}
 <section class="section">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>Color</h2>
+      <div class="gold-divider"></div>
+    </div>
+    <div class="gallery-grid stagger-children">
+      {% set colorImages = [
+        { src: "hero_shot_1_04290", alt: "Hero Shot — Color" },
+        { src: "arnold_04277", alt: "Arnold Pose" },
+        { src: "front_double_biceps_04236", alt: "Front Double Biceps" },
+        { src: "back_double_biceps_04248", alt: "Back Double Biceps" },
+        { src: "front_pose_04233", alt: "Front Pose" },
+        { src: "hero_shot_look_2_04318", alt: "Hero Shot Look 2" },
+        { src: "open_jacket_05012", alt: "Open Jacket" },
+        { src: "looking_down_04326", alt: "Looking Down" },
+        { src: "dsc04836", alt: "Studio Portrait" },
+        { src: "dsc04899", alt: "Studio Pose" },
+        { src: "pockets_04811", alt: "Pockets" }
+      ] %}
+      {% for img in colorImages %}
+      <div class="gallery-item">
+        <picture>
+          <source srcset="/images/physique-color/{{ img.src }}-800w.webp 800w, /images/physique-color/{{ img.src }}-1200w.webp 1200w, /images/physique-color/{{ img.src }}-1920w.webp 1920w" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw" type="image/webp">
+          <img src="/images/physique-color/{{ img.src }}-1200w.webp" alt="{{ img.alt }}" loading="lazy">
+        </picture>
+        <div class="overlay"><span>{{ img.alt }}</span></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark">
   <div class="container">
     <div class="section-title fade-in">
       <h2>Pricing</h2>
@@ -137,7 +187,7 @@ metaDescription: "Professional physique photography for bodybuilding competitors
   </div>
 </section>
 
-<section class="section section-dark">
+<section class="section">
   <div class="container">
     <div class="section-title fade-in">
       <h2>Frequently Asked Questions</h2>
@@ -184,7 +234,7 @@ metaDescription: "Professional physique photography for bodybuilding competitors
   </div>
 </section>
 
-<section class="section">
+<section class="section section-dark">
   <div class="container">
     <div class="section-title fade-in">
       <h2>What Athletes Are Saying</h2>

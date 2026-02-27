@@ -1,0 +1,72 @@
+---
+layout: layouts/base.njk
+title: Commercial & Lifestyle
+metaTitle: "Commercial & Lifestyle Photography — Nashville"
+metaDescription: "Commercial photography for brands, products, and lifestyle campaigns in Nashville. From headset campaigns to swimwear editorials."
+---
+
+<section class="page-hero">
+  <div class="container">
+    <h1 class="fade-in">Commercial & Lifestyle</h1>
+    <p class="tagline fade-in">Brand stories. Product shots. Lifestyle campaigns.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p class="intro-text fade-in">From product photography and brand campaigns to lifestyle editorials — commercial work that tells your brand's story with intention. Every image is crafted to serve a purpose, whether that's selling a product, building a brand, or capturing a lifestyle.</p>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>Gallery</h2>
+      <div class="gold-divider"></div>
+    </div>
+    <div class="gallery-grid stagger-children">
+      {% set images = [
+        { src: "leitner_hero", alt: "Leitner Headsets — Hero" },
+        { src: "leitner_jay", alt: "Leitner Headsets — Jay" },
+        { src: "leitner_madelynne", alt: "Leitner Headsets — Madelynne" },
+        { src: "leitner_pablo", alt: "Leitner Headsets — Pablo" },
+        { src: "leitner_victoria3", alt: "Leitner Headsets — Victoria" },
+        { src: "leitner_victoria", alt: "Leitner Headsets — Victoria" },
+        { src: "leitner_william", alt: "Leitner Headsets — William" },
+        { src: "car_04615", alt: "Automotive" },
+        { src: "car_08652", alt: "Automotive" },
+        { src: "allee_461", alt: "Lifestyle — Allee Sutton" },
+        { src: "allee_1842", alt: "Lifestyle — Allee Sutton" },
+        { src: "allee_2064", alt: "Lifestyle — Allee Sutton" },
+        { src: "allee_2163", alt: "Lifestyle — Allee Sutton" },
+        { src: "gwen_77", alt: "Lifestyle — Gwen" },
+        { src: "gwen_1251", alt: "Lifestyle — Gwen" },
+        { src: "mya_86", alt: "Lifestyle — Mya" },
+        { src: "mya_1975", alt: "Lifestyle — Mya" },
+        { src: "mya_2006", alt: "Lifestyle — Mya" },
+        { src: "walking_portrait_6195", alt: "Walking Portrait" },
+        { src: "portrait_6207", alt: "Portrait" },
+        { src: "lifestyle_05427", alt: "Lifestyle" },
+        { src: "over_glasses_04643", alt: "Over Glasses" },
+        { src: "salute_04685", alt: "Salute" }
+      ] %}
+      {% for img in images %}
+      <div class="gallery-item">
+        <picture>
+          <source srcset="/images/commercial/{{ img.src }}-800w.webp 800w, /images/commercial/{{ img.src }}-1200w.webp 1200w, /images/commercial/{{ img.src }}-1920w.webp 1920w" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw" type="image/webp">
+          <img src="/images/commercial/{{ img.src }}-1200w.webp" alt="{{ img.alt }}" loading="lazy">
+        </picture>
+        <div class="overlay"><span>{{ img.alt }}</span></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="container fade-in">
+    <h2>Have a Project in Mind?</h2>
+    <p>Let's discuss your brand's visual needs.</p>
+    <a href="/contact/?service=commercial" class="btn btn-fill">Get in Touch</a>
+  </div>
+</section>

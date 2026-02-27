@@ -1,14 +1,14 @@
 ---
 layout: layouts/base.njk
-title: Headshots
-metaTitle: "Professional Headshots — Nashville"
+title: Headshots & Portraits
+metaTitle: "Professional Headshots & Portraits — Nashville"
 metaDescription: "Natural light and studio headshot sessions for actors, models, and professionals in Nashville. Starting at $250."
 ---
 
 <section class="page-hero">
   <div class="container">
-    <h1 class="fade-in">Headshots</h1>
-    <p class="tagline fade-in">Acting. Modeling. Business.</p>
+    <h1 class="fade-in">Headshots & Portraits</h1>
+    <p class="tagline fade-in">Acting. Modeling. Business. Personal.</p>
   </div>
 </section>
 
@@ -25,12 +25,40 @@ metaDescription: "Natural light and studio headshot sessions for actors, models,
       <div class="gold-divider"></div>
     </div>
     <div class="gallery-grid stagger-children">
-      <div class="gallery-item"><span class="gallery-placeholder">Actor — Outdoor Natural Light</span><div class="overlay"><span>Actor Headshot</span></div></div>
-      <div class="gallery-item"><span class="gallery-placeholder">Model — Studio</span><div class="overlay"><span>Model Headshot</span></div></div>
-      <div class="gallery-item"><span class="gallery-placeholder">Business — Professional</span><div class="overlay"><span>Business Professional</span></div></div>
-      <div class="gallery-item"><span class="gallery-placeholder">Actor — Character Range</span><div class="overlay"><span>Character Range</span></div></div>
-      <div class="gallery-item"><span class="gallery-placeholder">Model — Editorial</span><div class="overlay"><span>Editorial</span></div></div>
-      <div class="gallery-item"><span class="gallery-placeholder">Business — Corporate</span><div class="overlay"><span>Corporate</span></div></div>
+      {% set images = [
+        { src: "1736_headshot", alt: "Studio Headshot" },
+        { src: "headshot_02209", alt: "Outdoor Headshot" },
+        { src: "anna_mcneal_05862", alt: "Anna McNeal" },
+        { src: "ayla_d_06378", alt: "Ayla D" },
+        { src: "bosco_headshot", alt: "Bosco — Outdoor" },
+        { src: "brandon_headshot", alt: "Brandon — Outdoor" },
+        { src: "isabella_g_06210", alt: "Isabella G" },
+        { src: "morgan_headshot", alt: "Morgan — Outdoor" },
+        { src: "peter_headshot_06069", alt: "Peter — Headshot" },
+        { src: "reuben_o_05190", alt: "Reuben O" },
+        { src: "pillar_look_rockstar", alt: "Pillar Look — Rockstar Edit" },
+        { src: "2895_bw_uncropped", alt: "Portrait — Black & White" },
+        { src: "3361_bw_uncropped", alt: "Portrait — Black & White" },
+        { src: "5648_bw_portrait_final", alt: "Portrait — Black & White" },
+        { src: "bw_02638", alt: "Portrait — Black & White" },
+        { src: "come_on_bw_8757", alt: "Come On — Black & White" },
+        { src: "3361_portrait", alt: "Portrait" },
+        { src: "6095_portrait", alt: "Environmental Portrait" },
+        { src: "7313_final", alt: "Portrait" },
+        { src: "9681_nocrop", alt: "Portrait" },
+        { src: "charity_brick", alt: "Charity — Brick" },
+        { src: "charlie_booth_color", alt: "Charlie Booth" },
+        { src: "cowboy_color_06415", alt: "Cowboy Portrait" }
+      ] %}
+      {% for img in images %}
+      <div class="gallery-item">
+        <picture>
+          <source srcset="/images/headshots/{{ img.src }}-800w.webp 800w, /images/headshots/{{ img.src }}-1200w.webp 1200w, /images/headshots/{{ img.src }}-1920w.webp 1920w" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw" type="image/webp">
+          <img src="/images/headshots/{{ img.src }}-1200w.webp" alt="{{ img.alt }}" loading="lazy">
+        </picture>
+        <div class="overlay"><span>{{ img.alt }}</span></div>
+      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
