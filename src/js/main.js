@@ -1,3 +1,15 @@
+// ========= Hero Carousel =========
+(function() {
+  const imgs = document.querySelectorAll('.hero-carousel img');
+  if (imgs.length < 2) return;
+  let current = 0;
+  setInterval(() => {
+    imgs[current].classList.remove('active');
+    current = (current + 1) % imgs.length;
+    imgs[current].classList.add('active');
+  }, 5000);
+})();
+
 // ========= Mobile Nav Toggle =========
 const navToggle = document.getElementById('navToggle');
 const mainNav = document.getElementById('mainNav');

@@ -18,37 +18,59 @@ metaDescription: "Cosplay photography and dark conceptual art shoots in Nashvill
   </div>
 </section>
 
+{# ===== COSPLAY ===== #}
 <section class="section section-dark">
   <div class="container">
     <div class="section-title fade-in">
-      <h2>Gallery</h2>
+      <h2>Cosplay</h2>
       <div class="gold-divider"></div>
     </div>
     <div class="gallery-grid stagger-children">
-      {% set images = [
-        { src: "05212_uncropped", alt: "Cosplay Character" },
-        { src: "05755_social", alt: "Cosplay Portrait" },
-        { src: "fiery_claws", alt: "Fiery Claws" },
-        { src: "retouched_03319", alt: "Retouched Character" },
-        { src: "aphrodite_poster", alt: "Aphrodite Offering" },
-        { src: "becca_vintage_forest", alt: "Vintage Forest" },
-        { src: "candle_sepia_lucifer", alt: "Candle Sepia — Lucifer" },
-        { src: "corntee_tarot", alt: "Tarot" },
-        { src: "mournful_poster", alt: "Mournful" },
-        { src: "goddess_taste_blood", alt: "Goddess" },
-        { src: "shield_and_sword", alt: "Shield and Sword" },
-        { src: "pantsuit_demon", alt: "Pantsuit Demon" },
-        { src: "green_lantern", alt: "Green Lantern" },
-        { src: "sinister_wings", alt: "Sinister Wings" },
-        { src: "stella_promo", alt: "Stella Promo" }
+      {% set cosplayImages = [
+        { src: "05212_uncropped" },
+        { src: "05755_social" },
+        { src: "fiery_claws" },
+        { src: "retouched_03319" },
+        { src: "green_lantern" },
+        { src: "shield_and_sword" },
+        { src: "stella_promo" }
       ] %}
-      {% for img in images %}
+      {% for img in cosplayImages %}
       <div class="gallery-item">
         <picture>
           <source srcset="/images/cosplay/{{ img.src }}-800w.webp 800w, /images/cosplay/{{ img.src }}-1200w.webp 1200w, /images/cosplay/{{ img.src }}-1920w.webp 1920w" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw" type="image/webp">
-          <img src="/images/cosplay/{{ img.src }}-1200w.webp" alt="{{ img.alt }}" loading="lazy">
+          <img src="/images/cosplay/{{ img.src }}-1200w.webp" alt="Cosplay photography" loading="lazy">
         </picture>
-        <div class="overlay"><span>{{ img.alt }}</span></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ===== DARK CONCEPT ===== #}
+<section class="section">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>Dark Concept</h2>
+      <div class="gold-divider"></div>
+    </div>
+    <div class="gallery-grid stagger-children">
+      {% set darkImages = [
+        { src: "aphrodite_poster" },
+        { src: "becca_vintage_forest" },
+        { src: "candle_sepia_lucifer" },
+        { src: "corntee_tarot" },
+        { src: "mournful_poster" },
+        { src: "goddess_taste_blood" },
+        { src: "pantsuit_demon" },
+        { src: "sinister_wings" }
+      ] %}
+      {% for img in darkImages %}
+      <div class="gallery-item">
+        <picture>
+          <source srcset="/images/cosplay/{{ img.src }}-800w.webp 800w, /images/cosplay/{{ img.src }}-1200w.webp 1200w, /images/cosplay/{{ img.src }}-1920w.webp 1920w" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw" type="image/webp">
+          <img src="/images/cosplay/{{ img.src }}-1200w.webp" alt="Dark concept photography" loading="lazy">
+        </picture>
       </div>
       {% endfor %}
     </div>

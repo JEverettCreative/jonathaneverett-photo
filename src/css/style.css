@@ -139,8 +139,10 @@ img { max-width: 100%; display: block; }
   background: rgba(17,17,17,0.98); backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.08);
   padding: var(--space-sm) 0; min-width: 200px; flex-direction: column;
+  opacity: 0; visibility: hidden; transition: opacity 0.2s ease, visibility 0.2s ease;
 }
-.has-dropdown:hover .dropdown { display: flex; }
+.has-dropdown:hover .dropdown,
+.has-dropdown.open .dropdown { display: flex; opacity: 1; visibility: visible; }
 .dropdown li { padding: 0; }
 .dropdown a { display: block; padding: 0.5rem var(--space-sm); white-space: nowrap; }
 
@@ -179,9 +181,17 @@ img { max-width: 100%; display: block; }
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, rgba(212,168,67,0.05) 0%, transparent 70%);
+  background: rgba(0,0,0,0.55);
+  z-index: 1;
   pointer-events: none;
 }
+/* Hero Carousel */
+.hero-carousel { position: absolute; inset: 0; z-index: 0; }
+.hero-carousel img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; opacity: 0; transition: opacity 1.5s ease;
+}
+.hero-carousel img.active { opacity: 1; }
 .hero .container { width: 100%; position: relative; z-index: 1; }
 .hero h1 { margin-bottom: var(--space-sm); }
 .hero .tagline { font-family: var(--serif); color: var(--text-muted); font-size: clamp(1rem, 2vw, 1.3rem); font-style: italic; margin-bottom: var(--space-md); }
@@ -281,14 +291,11 @@ img { max-width: 100%; display: block; }
 .gallery-item:hover img { transform: scale(1.08); }
 .gallery-placeholder { color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; text-align: center; padding: var(--space-sm); }
 
-.gallery-item .overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(transparent 40%, rgba(0,0,0,0.85));
-  opacity: 0; transition: opacity 0.4s ease;
-  display: flex; align-items: flex-end; padding: var(--space-md);
-}
-.gallery-item:hover .overlay { opacity: 1; }
-.overlay span { color: var(--text); font-size: 0.9rem; font-family: var(--serif); font-style: italic; }
+.gallery-item .overlay { display: none; }
+
+/* Aspect ratio variants */
+.gallery-grid--square .gallery-item { aspect-ratio: 1/1; }
+.gallery-grid--portrait .gallery-item { aspect-ratio: 3/4; }
 
 /* ========= CONTENT BLOCKS ========= */
 .text-center { text-align: center; }
