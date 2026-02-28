@@ -13,25 +13,47 @@ metaDescription: "Thoughts on photography, behind-the-scenes from shoots, compet
 </section>
 
 <section class="section">
-  <div class="container">
+  <div style="max-width: 700px; margin: 0 auto; padding: 0 var(--space-md);">
     <div class="post-list">
       {% for post in collections.posts %}
-      <article class="post-item fade-in">
-        <p class="post-date">{{ post.date | date("%B %d, %Y") }}</p>
-        <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
-        <p class="post-excerpt">{{ post.data.excerpt }}</p>
+      <article class="post-item fade-in" style="margin-bottom: var(--space-lg); padding-bottom: var(--space-lg); border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <p class="post-date" style="font-size: 0.85rem; color: var(--accent); letter-spacing: 0.05em; margin-bottom: var(--space-xs);">{{ post.date | date("%B %d, %Y") }}</p>
+        <h3 style="margin-bottom: var(--space-xs);"><a href="{{ post.url }}" style="color: var(--text); text-decoration: none;">{{ post.data.title }}</a></h3>
+        <p class="post-excerpt" style="line-height: 1.75; color: var(--text-muted);">{{ post.data.excerpt }}</p>
         {% if post.data.tags %}
-        <div class="post-tags">
+        <div class="post-tags" style="margin-top: var(--space-sm);">
           {% for tag in post.data.tags %}
           <span class="post-tag">{{ tag }}</span>
           {% endfor %}
         </div>
         {% endif %}
       </article>
-      {% else %}
-      <div class="text-center" style="padding: var(--space-lg) 0;">
-        <p style="color: var(--text-muted);">New posts coming soon. Stay tuned.</p>
+
+      {% if loop.index == 1 %}
+      <div class="fade-in" style="margin: var(--space-lg) 0; text-align: center;">
+        <img src="/images/physique-color/arnold_04277-800w.webp" alt="Physique photography" style="max-width: 100%; max-height: 600px; object-fit: cover; border-radius: 4px;">
       </div>
+      {% endif %}
+
+      {% if loop.index == 3 %}
+      <div class="fade-in" style="margin: var(--space-lg) 0; text-align: center;">
+        <img src="/images/physique-color/dsc04836-800w.webp" alt="Physique photography" style="max-width: 100%; max-height: 600px; object-fit: cover; border-radius: 4px;">
+      </div>
+      {% endif %}
+
+      {% else %}
+      <div class="text-center fade-in" style="padding: var(--space-xl) 0;">
+        <p style="color: var(--text-muted); font-family: var(--serif); font-style: italic; font-size: 1.1rem;">New posts coming soon. Stay tuned.</p>
+      </div>
+
+      <div class="fade-in" style="margin: var(--space-lg) 0; text-align: center;">
+        <img src="/images/physique-color/arnold_04277-800w.webp" alt="Physique photography by Jonathan Everett" style="max-width: 100%; max-height: 600px; object-fit: cover; border-radius: 4px;">
+      </div>
+
+      <div class="fade-in" style="margin: var(--space-lg) 0; text-align: center;">
+        <img src="/images/physique-color/dsc04836-800w.webp" alt="Physique photography" style="max-width: 100%; max-height: 600px; object-fit: cover; border-radius: 4px;">
+      </div>
+
       {% endfor %}
     </div>
   </div>
