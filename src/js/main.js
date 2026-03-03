@@ -73,10 +73,31 @@ const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
 const lightboxClose = document.querySelector('.lightbox-close');
 
-document.querySelectorAll('.gallery-item[data-src]').forEach(item => {
-  item.addEventListener('click', () => {
-    lightboxImg.src = item.dataset.src;
-    lightboxImg.alt = item.dataset.alt || '';
+document.querySelectorAll('.gallery-item').forEach(item => {
+  item.style.cursor = 'pointer';
+  item.addEventListener('click', (e) => {
+    // Don't open lightbox if clicking a link inside gallery-item
+    if (e.target.closest('a')) return;
+    const img = item.querySelector('img');
+    if (!img) return;
+    // Try to get the largest srcset image, fall back to src
+    const source = item.querySelector('source[srcset]');
+    let fullSrc = img.src;
+    if (source) {
+      const srcset = source.getAttribute('srcset');
+      const parts = srcset.split(',').map(s => s.trim());
+      if (parts.length > 0) {
+        // Get the last (largest) srcset entry
+        fullSrc = parts[parts.length - 1].split(' ')[0];
+      }
+    }
+    lightboxImg.src = fullSrc;
+    lightboxImg.alt = img.alt || '';
+    lightboxImg.style.maxWidth = '90vw';
+    lightboxImg.style.maxHeight = '90vh';
+    lightboxImg.style.objectFit = 'contain';
+    lightboxImg.style.width = 'auto';
+    lightboxImg.style.height = 'auto';
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
   });

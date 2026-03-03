@@ -16,7 +16,7 @@ metaDescription: "Ready to book a photography session? Reach out for physique ph
   <div class="container">
     <div class="contact-grid">
       <div class="contact-form fade-in">
-        <form action="/api/contact" method="POST">
+        <form name="contact" method="POST" data-netlify="true">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" required placeholder="Your name">
 
@@ -30,9 +30,9 @@ metaDescription: "Ready to book a photography session? Reach out for physique ph
           <select id="service" name="service">
             <option value="">Select a service...</option>
             <option value="physique">Physique Photography</option>
-            <option value="headshots">Headshots</option>
-            <option value="portraits">Portraits &amp; Creative</option>
-            <option value="cosplay">Cosplay Photography</option>
+            <option value="headshots">Headshots & Portraits</option>
+            <option value="cosplay">Cosplay & Dark Concept</option>
+            <option value="commercial">Commercial & Lifestyle</option>
             <option value="film">Film / Video</option>
             <option value="other">Other</option>
           </select>

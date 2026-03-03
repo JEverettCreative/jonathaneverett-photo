@@ -11,9 +11,9 @@ metaDescription: "Jonathan Everett Creative — Nashville photographer specializ
     <img src="/images/hero/corntee_reaching_tarot.webp" alt="Corntee reaching tarot black and white creative portrait">
   </div>
   <div class="container">
-    <h1 class="fade-in">Jonathan Everett</h1>
-    <p class="tagline fade-in">Photographer · Filmmaker · Nashville</p>
-    <p class="fade-in">Crafting bold, authentic imagery for athletes, actors, and creatives. Based in Nashville, working everywhere.</p>
+    <h1 class="fade-in">{{ homepage.heroTitle }}</h1>
+    <p class="tagline fade-in">{{ homepage.heroTagline }}</p>
+    <p class="fade-in">{{ homepage.heroDescription }}</p>
     <a href="/contact/" class="btn btn-fill fade-in">Book a Session</a>
   </div>
 </section>
@@ -21,9 +21,9 @@ metaDescription: "Jonathan Everett Creative — Nashville photographer specializ
 <section class="section">
   <div class="container">
     <div class="section-title fade-in">
-      <h2>Featured Work</h2>
+      <h2>{{ homepage.featuredWorkTitle }}</h2>
       <div class="gold-divider"></div>
-      <p>Select recent projects</p>
+      <p>{{ homepage.featuredWorkSubtitle }}</p>
     </div>
     <div class="gallery-grid stagger-children" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-md);">
       <a href="/photography/physique/" class="gallery-item category-card" style="aspect-ratio: 4/5; text-decoration: none;">
@@ -48,7 +48,7 @@ metaDescription: "Jonathan Everett Creative — Nashville photographer specializ
 
 <section class="section section-dark">
   <div class="container">
-    <p class="intro-text fade-in">Whether you're stepping on stage, updating your headshot, or creating something entirely new — I bring the same energy, attention, and artistry to every session. Let's make something worth remembering.</p>
+    <p class="intro-text fade-in">{{ homepage.midSectionText }}</p>
   </div>
 </section>
 
@@ -86,8 +86,8 @@ metaDescription: "Jonathan Everett Creative — Nashville photographer specializ
 
 <section class="cta-banner">
   <div class="container fade-in">
-    <h2>Ready to Create?</h2>
-    <p>Let's build something that shows the world who you are.</p>
+    <h2>{{ homepage.ctaTitle }}</h2>
+    <p>{{ homepage.ctaText }}</p>
     <a href="/contact/" class="btn btn-fill">Get In Touch</a>
   </div>
 </section>

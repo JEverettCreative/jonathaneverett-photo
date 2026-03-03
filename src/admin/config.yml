@@ -46,3 +46,26 @@ collections:
       - { label: "Service Type", name: "service", widget: "select", options: ["physique", "headshots", "portraits", "creative", "film"] }
       - { label: "Quote", name: "quote", widget: "text" }
       - { label: "Date", name: "date", widget: "datetime" }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Homepage"
+        name: "homepage"
+        file: "src/_data/homepage.json"
+        fields:
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Tagline", name: "heroTagline", widget: "string" }
+          - { label: "Hero Description", name: "heroDescription", widget: "text" }
+          - { label: "Featured Work Title", name: "featuredWorkTitle", widget: "string" }
+          - { label: "Featured Work Subtitle", name: "featuredWorkSubtitle", widget: "string" }
+          - { label: "Mid-Section Text", name: "midSectionText", widget: "text" }
+          - { label: "CTA Title", name: "ctaTitle", widget: "string" }
+          - { label: "CTA Text", name: "ctaText", widget: "string" }
+      - label: "About Page"
+        name: "about"
+        file: "src/_data/about.json"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Bio Paragraphs", name: "bio", widget: "list", field: { label: "Paragraph", name: "paragraph", widget: "text" } }
