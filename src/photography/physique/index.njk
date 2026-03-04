@@ -9,14 +9,8 @@ metaDescription: "Professional physique photography for bodybuilding competitors
   <div class="container">
     <h1 class="fade-in">Physique & Fitness</h1>
     <p class="tagline fade-in">You Didn't Train This Hard for Average Photos.</p>
-    <p class="hero-subtitle fade-in">Professional physique photography for competitors who want images as sharp as their conditioning. Shot by a photographer who's stood on stage himself.</p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="intro-text fade-in">
-      <p>You've spent months dialing in your nutrition, perfecting your posing, and pushing through workouts that would break most people. Your physique tells a story of discipline and dedication. As a bodybuilder myself, I understand the work — and I know how lighting, angles, and posing direction can make the difference between a good photo and one that truly captures what you've built.</p>
+    <div class="intro-text fade-in" style="max-width: 750px; margin: var(--space-md) auto 0;">
+      <p>Professional physique photography for competitors who want images as sharp as their conditioning. You've spent months dialing in your nutrition, perfecting your posing, and pushing through workouts that would break most people. As a bodybuilder who's stood on stage himself, I understand the work — and I know how lighting, angles, and posing direction can make the difference between a good photo and one that truly captures what you've built.</p>
     </div>
   </div>
 </section>
@@ -167,42 +161,14 @@ END HIDDEN: What to Expect -->
       <div class="gold-divider"></div>
     </div>
     <div class="faq-list fade-in">
+      {% for faq in physiqueFaq.faq %}
       <div class="faq-item">
-        <button class="faq-question">What should I wear to a physique shoot?</button>
+        <button class="faq-question">{{ faq.question }}</button>
         <div class="faq-answer">
-          <p>For competition shots, bring your competition suit (or suits if you compete in multiple divisions). For more casual physique work, athletic wear, shorts, or whatever you'd typically train in works great. I'd recommend bringing 2–3 options so we have variety. If you're unsure, we'll discuss it during the consultation.</p>
+          <p>{{ faq.answer }}</p>
         </div>
       </div>
-      <div class="faq-item">
-        <button class="faq-question">How long does a typical session last?</button>
-        <div class="faq-answer">
-          <p>Most physique sessions run 1–2 hours depending on the package. Competition day shoots tend to be faster since you're already prepped and peaked. Transformation shoots are typically shorter individual sessions (30–45 minutes) repeated over time.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">Do you shoot indoors, outdoors, or both?</button>
-        <div class="faq-answer">
-          <p>Both. Studio sessions with professional lighting give us the most control for highlighting muscle definition, separation, and conditioning. Outdoor sessions can add a dynamic, gritty feel. We'll decide based on your goals and the look you're going for.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">Do you work with coaches or prep teams?</button>
-        <div class="faq-answer">
-          <p>Absolutely. I regularly collaborate with prep coaches and teams to coordinate session timing around peak week and show dates. If your coach wants specific angles or progress documentation for their portfolio, I'm happy to work with them on deliverables.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">What's the turnaround time for edited images?</button>
-        <div class="faq-answer">
-          <p>Standard turnaround is 7–10 business days. If you need a faster turnaround for social media posts or sponsor deadlines, rush delivery is available for an additional fee. I'll provide a few preview images within 48 hours of the shoot.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">What are the usage rights for my photos?</button>
-        <div class="faq-answer">
-          <p>You receive full personal usage rights — social media, portfolio, personal website, competition submissions, coaching profiles, etc. Commercial usage (paid sponsorships, supplement company ads, paid licensing) is discussed on a case-by-case basis. I retain the right to use images in my portfolio unless otherwise agreed.</p>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
