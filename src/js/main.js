@@ -112,40 +112,6 @@ function closeLightbox() {
 if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
 if (lightbox) lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
 
-// ========= Exit Intent Popup =========
-const exitPopup = document.getElementById('exitPopup');
-let exitPopupShown = false;
-
-function showExitPopup() {
-  if (exitPopupShown || !exitPopup) return;
-  if (sessionStorage.getItem('exitPopupDismissed')) return;
-  exitPopup.classList.add('active');
-  document.body.style.overflow = 'hidden';
-  exitPopupShown = true;
-}
-
-function closeExitPopup() {
-  if (exitPopup) {
-    exitPopup.classList.remove('active');
-    document.body.style.overflow = '';
-    sessionStorage.setItem('exitPopupDismissed', 'true');
-  }
-}
-
-// Desktop: mouse leaves viewport top
-document.addEventListener('mouseout', (e) => {
-  if (e.clientY <= 0) showExitPopup();
-});
-
-// Mobile: after 45 seconds on page
-setTimeout(() => {
-  if (window.innerWidth <= 768) showExitPopup();
-}, 45000);
-
-if (exitPopup) {
-  exitPopup.querySelector('.exit-popup-close')?.addEventListener('click', closeExitPopup);
-  exitPopup.querySelector('.exit-popup-overlay')?.addEventListener('click', closeExitPopup);
-}
 
 // ========= Mobile Sticky CTA =========
 const mobileCta = document.getElementById('mobileCta');
@@ -181,7 +147,6 @@ window.addEventListener('scroll', () => {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     closeLightbox();
-    closeExitPopup();
   }
 });
 
