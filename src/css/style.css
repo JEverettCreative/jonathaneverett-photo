@@ -309,6 +309,18 @@ img { max-width: 100%; display: block; }
 .gallery-grid--square .gallery-item { aspect-ratio: 1/1; }
 .gallery-grid--portrait .gallery-item { aspect-ratio: 3/4; }
 
+/* Natural (uncropped) grid — preserves each image's real proportions.
+   Deterministic 3-column rows so gallery order is exact. Scoped: does not
+   affect other .gallery-grid galleries. */
+.gallery-grid--natural {
+  grid-template-columns: repeat(3, 1fr);
+  align-items: start;
+}
+.gallery-grid--natural .gallery-item { aspect-ratio: auto; }
+.gallery-grid--natural .gallery-item img { height: auto; display: block; }
+@media (max-width: 900px) { .gallery-grid--natural { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .gallery-grid--natural { grid-template-columns: 1fr; } }
+
 /* ========= CONTENT BLOCKS ========= */
 .text-center { text-align: center; }
 .intro-text {
