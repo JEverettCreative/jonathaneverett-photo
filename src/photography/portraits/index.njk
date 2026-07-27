@@ -27,16 +27,22 @@ metaDescription: "Cosplay photography and dark conceptual art shoots in Nashvill
     </div>
     <div class="gallery-grid stagger-children">
       {% set cosplayImages = [
+        { src: "alleria_cosplay_world_of_warcraft", alt: "Alleria cosplay, World of Warcraft" },
         { src: "05212_uncropped" },
-        { src: "05755_social" },
+        { src: "bloodfang_rogue_cosplay_world_of_warcraft", alt: "Bloodfang Rogue cosplay, World of Warcraft" },
         { src: "fiery_claws" },
-        { src: "retouched_03319" }
+        { src: "sally_whitemane_cosplay_world_of_warcraft", alt: "Sally Whitemane cosplay, World of Warcraft" },
+        { src: "05755_social" },
+        { src: "druid_tier_set_cosplay_world_of_warcraft", alt: "Druid tier set cosplay, World of Warcraft" },
+        { src: "retouched_03319" },
+        { src: "priest_cosplay_world_of_warcraft", alt: "Priest cosplay, World of Warcraft" },
+        { src: "troll_cosplay_world_of_warcraft", alt: "Troll cosplay, World of Warcraft" }
       ] %}
       {% for img in cosplayImages %}
       <div class="gallery-item">
         <picture>
           <source srcset="/images/cosplay/{{ img.src }}-800w.webp 800w, /images/cosplay/{{ img.src }}-1200w.webp 1200w, /images/cosplay/{{ img.src }}-1920w.webp 1920w" sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw" type="image/webp">
-          <img src="/images/cosplay/{{ img.src }}-1200w.webp" alt="Cosplay photography" loading="lazy">
+          <img src="/images/cosplay/{{ img.src }}-1200w.webp" alt="{{ img.alt or 'Cosplay photography' }}" loading="lazy">
         </picture>
       </div>
       {% endfor %}
