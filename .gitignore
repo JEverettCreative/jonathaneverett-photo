@@ -1,3 +1,9 @@
 node_modules/
 _site/
 .DS_Store
+
+# Internal working docs — not for the deployed site (Cowork management)
+PROJECT.md
+INSTRUCTIONS.md
+
+BlizzCon 2023/
